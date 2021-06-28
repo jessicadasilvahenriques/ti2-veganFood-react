@@ -23,9 +23,24 @@ namespace veganFood.Controllers.API
 
         // GET: api/FotografiasAPI
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Fotografias>>> GetFotografias()
+        public async Task<ActionResult<IEnumerable<FotografiasAPIViewModel>>> GetFotografias()
         {
-            return await _context.Fotografias.ToListAsync();
+            return await _context.Fotografias
+                                    .Include(f=>f.Receita)
+                                    .Select(f=> new FotografiasAPIViewModel {
+                                                    IDfotografia = f.IDfotografia,
+                                                    Fotografia =f.Fotografia
+
+            })
+                                                       
+                                                
+                
+                
+                
+                
+                
+                .ToListAsync();
+
         }
 
         // GET: api/FotografiasAPI/5

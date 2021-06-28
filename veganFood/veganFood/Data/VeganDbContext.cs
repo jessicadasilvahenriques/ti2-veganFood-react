@@ -25,6 +25,9 @@ namespace veganFood.Data
         {
             base.OnModelCreating(modelBuilder);
 
+
+            modelBuilder.Entity<Utilizadores>().HasData(
+                new Utilizadores { Email = "jose@hotmail.com", IDutilizador = 1, Nome = "Jose", UserNameId = "8b045d16-ea55-410e-afce-695013e76972" });
             //insert DB seed
             modelBuilder.Entity<Receitas>().HasData(
                 new Receitas { IDreceita = 1, Descricao = "Arroz do mar", Ingredientes = "Azeite qb, 1 cebola média, 2 dentes de alho, Tomate sem pele picado, 1 / 2 pimento vermelho aos cubos, 1 / 2 chouriço vegan 1 embalagem de flor de bananeira em matinada de algas , 1 copo de arroz, 1 caldo de legumes vegan, sal e açafrão qb", ModoPreparo = "Põe-se numa paelheira azeite cebola picadinha e dois dentes de alho.Quando estiver alourado deita-se um tomate sem pele picado e meio pimento vermelho e meio pimento verde aos cubos. Tempera - se com sal e açafrão. Adiciona meio chouriço vegan, cortado às rodelas e flor de bananeira.Deixa - se cozer um pouco. Acrescenta um copo de arroz e mexe - se. Juntam - se dois copos de água com caldo de legumes. Mexe - se e deixa - se cozer o arroz 12 a 15 minutos. Está pronto a ser servido" },

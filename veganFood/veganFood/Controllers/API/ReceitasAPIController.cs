@@ -23,9 +23,16 @@ namespace veganFood.Controllers.API
 
         // GET: api/ReceitasAPI
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Receitas>>> GetReceitas()
+        public async Task<ActionResult<IEnumerable<ReceitasAPIViewModel>>> GetReceitas()
         {
-            return await _context.Receitas.ToListAsync();
+            return await _context.Receitas.Select(r => new ReceitasAPIViewModel{ 
+                                                IDreceita=r.IDreceita,
+                                                Descricao=r.Descricao,
+                                                Ingredientes=r.Ingredientes,
+                                                ModoPreparo=r.ModoPreparo
+                                 })
+                
+                .ToListAsync();
         }
 
         // GET: api/ReceitasAPI/5
