@@ -83,7 +83,7 @@ namespace veganFood.Controllers.API
         // POST: api/ReceitasAPI
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Receitas>> PostReceitas(Receitas receitas)
+        public async Task<ActionResult<Receitas>> PostReceitas([FromForm]Receitas receitas)
         {
             _context.Receitas.Add(receitas);
             await _context.SaveChangesAsync();
